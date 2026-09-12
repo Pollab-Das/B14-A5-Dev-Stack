@@ -13,24 +13,24 @@ const YourStack = ({
   onRemoveAll,
 }: YourStackProps) => {
   return (
-    <div className="h-fit rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+    <div className="sticky top-24 h-fit max-h-[calc(100vh-120px)] overflow-y-auto rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
       <h3 className="text-base font-bold text-slate-900">Your Stack</h3>
 
       {/* Count text */}
       {selectedTechs.length === 0 ? (
-        <p className="mt-0.5 text-xs text-gray-400">
+        <p className="mt-1.5 text-sm text-gray-500">
           No technologies selected yet.
         </p>
       ) : (
-        <p className="mt-0.5 text-xs text-gray-400">
+        <p className="mt-0.5 text-sm text-gray-500">
           {selectedTechs.length} Technology Selected
         </p>
       )}
 
       {/* Empty state */}
       {selectedTechs.length === 0 ? (
-        <div className="mt-3 flex items-center justify-center rounded-lg border-2 border-dashed border-gray-200 py-8">
-          <p className="text-xs text-gray-400">Your stack is empty.</p>
+        <div className="mt-3.5 flex items-center justify-center rounded-lg border-2 border-dashed border-gray-200 py-9">
+          <p className="text-sm text-gray-500">Your stack is empty.</p>
         </div>
       ) : (
         <>
@@ -46,7 +46,7 @@ const YourStack = ({
                     <p className="text-xs font-bold text-slate-900">
                       {tech.name}
                     </p>
-                    <p className="text-[10px] text-gray-400">
+                    <p className="text-[10px] text-gray-500">
                       {tech.category}
                     </p>
                   </div>
@@ -55,7 +55,7 @@ const YourStack = ({
                   onClick={() => onRemove(tech.id)}
                   className="text-gray-400 transition hover:text-red-500"
                 >
-                  <IoClose size={16} />
+                  <IoClose size={20} />
                 </button>
               </div>
             ))}
@@ -64,7 +64,7 @@ const YourStack = ({
           {/* Remove All */}
           <button
             onClick={onRemoveAll}
-            className="mt-4 w-full rounded-lg border border-red-300 py-2 text-xs font-semibold text-red-500 transition hover:bg-red-50"
+            className="mt-5 w-full rounded-lg border border-red-500 py-3 text-sm font-semibold text-red-500 transition hover:bg-red-50"
           >
             Remove All
           </button>

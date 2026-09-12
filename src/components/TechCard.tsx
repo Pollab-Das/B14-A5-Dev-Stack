@@ -37,8 +37,13 @@ const TechCard = ({ tech, isSelected, onAdd }: TechCardProps) => {
         {tech.description}
       </p>
 
+      
+
       {/* Meta + Button (নিচে পিন করা) */}
       <div className="mt-auto pt-6">
+
+        {/* Divider line — হালকা বর্ডার */}
+        <div className="mb-4 border-t border-gray-300" />
         {/* Meta row — ডানে স্পষ্ট গ্যাপ (pr-2) যোগ করা হয়েছে */}
         <div className="flex items-center gap-2 pr-1 text-sm">
           {/* Left: Category badge */}
