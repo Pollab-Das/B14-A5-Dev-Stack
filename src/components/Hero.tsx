@@ -34,7 +34,7 @@ const Hero = () => {
           <img
             src={heroImg}
             alt="Development Stack Illustration"
-            className="w-full max-w-md"
+            className="w-full max-w-lg"
           />
         </div>
       </div>
