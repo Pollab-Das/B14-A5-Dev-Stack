@@ -1,6 +1,7 @@
 import type { ITech } from "../types/tech";
 import { FaStar } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
+import { toast, Bounce } from "react-toastify";
 
 interface TechCardProps {
   tech: ITech;
@@ -9,6 +10,23 @@ interface TechCardProps {
 }
 
 const TechCard = ({ tech, isSelected, onAdd }: TechCardProps) => {
+  const handleAddClick = () => {
+    onAdd(tech);
+
+    // Add to Stack-এর টোস্ট
+    toast.success(`✓ ${tech.name} added to your stack!`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
+
   return (
     <div
       className={`flex h-full flex-col rounded-2xl border bg-white p-7 shadow-sm transition ${
@@ -37,26 +55,19 @@ const TechCard = ({ tech, isSelected, onAdd }: TechCardProps) => {
         {tech.description}
       </p>
 
-      
-
       {/* Meta + Button (নিচে পিন করা) */}
       <div className="mt-auto pt-6">
-
         {/* Divider line — হালকা বর্ডার */}
         <div className="mb-4 border-t border-gray-300" />
-        {/* Meta row — ডানে স্পষ্ট গ্যাপ (pr-2) যোগ করা হয়েছে */}
+
+        {/* Meta row */}
         <div className="flex items-center gap-2 pr-1 text-sm">
-          {/* Left: Category badge */}
           <span className="shrink-0 rounded-md bg-gray-100 px-1 py-1 font-medium text-gray-600">
             {tech.category}
           </span>
-
-          {/* Middle: Level — মাঝখানে সেন্টার করা */}
           <span className="flex-1 whitespace-nowrap text-center text-gray-400">
             {tech.level}
           </span>
-
-          {/* Right: Rating — shrink-0 + ডান দিকে গ্যাপ */}
           <span className="flex shrink-0 items-center gap-1 font-semibold text-amber-500">
             <FaStar className="text-amber-400" size={14} />
             {tech.rating}
@@ -65,7 +76,7 @@ const TechCard = ({ tech, isSelected, onAdd }: TechCardProps) => {
 
         {/* Button */}
         <button
-          onClick={() => onAdd(tech)}
+          onClick={handleAddClick}
           disabled={isSelected}
           className={`mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg py-2.5 text-sm font-semibold transition ${
             isSelected

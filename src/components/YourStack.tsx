@@ -1,5 +1,6 @@
 import type { ITech } from "../types/tech";
 import { IoClose } from "react-icons/io5";
+import { toast, Bounce } from "react-toastify";
 
 interface YourStackProps {
   selectedTechs: ITech[];
@@ -12,6 +13,40 @@ const YourStack = ({
   onRemove,
   onRemoveAll,
 }: YourStackProps) => {
+  const handleRemove = (tech: ITech) => {
+    onRemove(tech.id);
+
+    // Remove-এর টোস্ট
+    toast.info(`${tech.name} removed from your stack`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
+
+  const handleRemoveAll = () => {
+    onRemoveAll();
+
+    // Remove All-এর টোস্ট
+    toast.warning("Stack cleared", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
+
   return (
     <div className="sticky mt-25.5 top-24 h-fit max-h-[calc(100vh-120px)] overflow-y-auto rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
       <h3 className="text-base font-bold text-slate-900">Your Stack</h3>
@@ -52,7 +87,7 @@ const YourStack = ({
                   </div>
                 </div>
                 <button
-                  onClick={() => onRemove(tech.id)}
+                  onClick={() => handleRemove(tech)}
                   className="text-gray-400 transition hover:text-red-500"
                 >
                   <IoClose size={20} />
@@ -63,7 +98,7 @@ const YourStack = ({
 
           {/* Remove All */}
           <button
-            onClick={onRemoveAll}
+            onClick={handleRemoveAll}
             className="mt-5 w-full rounded-lg border border-red-500 py-3 text-sm font-semibold text-red-500 transition hover:bg-red-50"
           >
             Remove All
