@@ -1,17 +1,30 @@
+import { useState } from "react";
 import logo from "../assets/logo.png";
+import hamburger from "../assets/hamburger.png";
 
 const navLinks = ["Home", "Technologies", "Projects", "About", "Contact"];
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        {/* Hamburger Menu — শুধু মোবাইলে দেখা যাবে (বাম দিকে) */}
+        <button
+          className="flex md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <img src={hamburger} alt="Menu" className="h-7 w-7" />
+        </button>
+
+        {/* Logo — ডেস্কটপে বামে, মোবাইলে সেন্টারে */}
+        <div className="absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0">
           <img src={logo} alt="DevStack Logo" className="h-9" />
         </div>
 
-        {/* Nav Links */}
+        {/* Nav Links — শুধু ডেস্কটপে দেখা যাবে */}
         <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <li key={link}>
@@ -39,6 +52,28 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="border-t border-gray-100 bg-white px-6 py-4 md:hidden">
+          <ul className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <li key={link}>
+                <a
+                  href="#"
+                  className={`text-sm font-medium transition-colors ${
+                    link === "Home"
+                      ? "text-pink-600"
+                      : "text-gray-500 hover:text-pink-600"
+                  }`}
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
