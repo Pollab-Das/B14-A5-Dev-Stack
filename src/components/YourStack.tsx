@@ -13,7 +13,7 @@ const YourStack = ({
   onRemoveAll,
 }: YourStackProps) => {
   return (
-    <div className="sticky top-24 h-fit max-h-[calc(100vh-120px)] overflow-y-auto rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+    <div className="sticky mt-25.5 top-24 h-fit max-h-[calc(100vh-120px)] overflow-y-auto rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
       <h3 className="text-base font-bold text-slate-900">Your Stack</h3>
 
       {/* Count text */}
