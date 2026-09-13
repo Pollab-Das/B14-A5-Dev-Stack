@@ -13,7 +13,7 @@ const TechCard = ({ tech, isSelected, onAdd }: TechCardProps) => {
   const handleAddClick = () => {
     onAdd(tech);
 
-    // Add to Stack-এর টোস্ট
+    // Add to Stack
     toast.success(`✓ ${tech.name} added to your stack!`, {
       position: "top-right",
       autoClose: 5000,
@@ -35,7 +35,7 @@ const TechCard = ({ tech, isSelected, onAdd }: TechCardProps) => {
           : "border-gray-200 hover:shadow-md"
       }`}
     >
-      {/* Top: Logo + Badge */}
+      {/*Logo*/}
       <div className="flex items-start justify-between">
         <img src={tech.logo} alt={tech.name} className="h-14 w-14" />
         {tech.badge && (
@@ -55,9 +55,9 @@ const TechCard = ({ tech, isSelected, onAdd }: TechCardProps) => {
         {tech.description}
       </p>
 
-      {/* Meta + Button (নিচে পিন করা) */}
+      {/* Meta Button */}
       <div className="mt-auto pt-6">
-        {/* Divider line — হালকা বর্ডার */}
+        
         <div className="mb-4 border-t border-gray-300" />
 
         {/* Meta row */}

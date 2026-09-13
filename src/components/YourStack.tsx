@@ -16,7 +16,7 @@ const YourStack = ({
   const handleRemove = (tech: ITech) => {
     onRemove(tech.id);
 
-    // Remove-এর টোস্ট
+    // Remove
     toast.info(`${tech.name} removed from your stack`, {
       position: "top-right",
       autoClose: 5000,
@@ -33,7 +33,7 @@ const YourStack = ({
   const handleRemoveAll = () => {
     onRemoveAll();
 
-    // Remove All-এর টোস্ট
+    // Remove All part 
     toast.warning("Stack cleared", {
       position: "top-right",
       autoClose: 5000,
@@ -62,7 +62,7 @@ const YourStack = ({
         </p>
       )}
 
-      {/* Empty state */}
+      {/* Empty state part eita */}
       {selectedTechs.length === 0 ? (
         <div className="mt-3.5 flex items-center justify-center rounded-lg border-2 border-dashed border-gray-200 py-9">
           <p className="text-sm text-gray-500">Your stack is empty.</p>

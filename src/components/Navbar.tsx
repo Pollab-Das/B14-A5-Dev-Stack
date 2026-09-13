@@ -19,7 +19,7 @@ const Navbar = () => {
           <img src={hamburger} alt="Menu" className="h-7 w-7" />
         </button>
 
-        {/* Logo — centar hobe */}
+        {/* Logo centar hobe */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0">
           <img src={logo} alt="DevStack Logo" className="h-9" />
         </div>
