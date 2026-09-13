@@ -3,7 +3,7 @@ import heroImg from "../assets/hero.png";
 const Hero = () => {
   return (
     <section className="bg-white">
-      <div className="container mx-auto grid grid-cols-1 items-center gap-20.5 px-4 py-16 lg:grid-cols-2 lg:py-24">
+      <div className="container mx-auto grid grid-cols-1 items-center gap-20 px-4 py-16 lg:grid-cols-2 lg:py-24">
         {/* Left: Text */}
         <div>
           <h1 className="text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl lg:text-5xl xl:text-6xl">
