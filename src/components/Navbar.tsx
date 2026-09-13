@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        {/* Hamburger Menu — শুধু মোবাইলে দেখা যাবে (বাম দিকে) */}
+        {/* Hamburger Menu */}
         <button
           className="flex md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -19,12 +19,12 @@ const Navbar = () => {
           <img src={hamburger} alt="Menu" className="h-7 w-7" />
         </button>
 
-        {/* Logo — ডেস্কটপে বামে, মোবাইলে সেন্টারে */}
+        {/* Logo — centar hobe */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0">
           <img src={logo} alt="DevStack Logo" className="h-9" />
         </div>
 
-        {/* Nav Links — শুধু ডেস্কটপে দেখা যাবে */}
+        {/* Nav Links */}
         <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <li key={link}>
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="border-t border-gray-100 bg-white px-6 py-4 md:hidden">
           <ul className="flex flex-col gap-4">
