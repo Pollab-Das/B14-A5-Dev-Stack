@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className="bg-white">
       <div className="container mx-auto grid grid-cols-1 items-center gap-10 px-4 py-16 lg:grid-cols-2 lg:py-24">
-        {/* Text er part */}
+        {/* Left: Text */}
         <div>
           <h1 className="text-4xl font-extrabold leading-tight text-slate-900 md:text-5xl lg:text-6xl">
             Build Your Ideal
@@ -29,12 +29,12 @@ const Hero = () => {
           </div>
         </div>
 
-        {/*Right side er Image er*/}
+        {/* Right: Image */}
         <div className="flex justify-center lg:justify-end">
           <img
             src={heroImg}
             alt="Development Stack Illustration"
-            className="w-full max-w-lg"
+            className="w-full max-w-md"
           />
         </div>
       </div>
